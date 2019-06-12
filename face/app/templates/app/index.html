@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>	
+
+    	<p style="text-align: center;font-size: 30px">人脸检测,上传照片即可</p>
+    <div style="width: 100%;;text-align:center " >
+    <form action="{% url 'app:upload' %}" method="post" enctype="multipart/form-data"  >
+		{% csrf_token %}
+		<input type="file" name="img">
+		<input type="submit" name="提交">
+	</form>
+	</div>	 	
+    <div style="float:left;height: 580px;width:60%;">
+    		
+		<img src="{{MEDIA_URL}}{{img}}" height="600px" >    			
+
+	</div>
+	<div style="float:right;height: 580px;width: 40%; " >		  
+			   
+			  
+      {% for person in persons %}
+       <tr >
+  				 <th>年龄:{{person.0}}</th> 
+			    <th>性别: {{person.1}} </th>
+			    <td>颜值:{{person.2}}</td> 
+			    <td>皮肤:{{person.3}}</td> 
+			    <td>情绪:{{person.4}}</td> 
+		</tr>
+		<br />
+		<br  />			  	
+      {% endfor %}
+			 
+   
+	</div>
+   
+
+</body>
+</html>

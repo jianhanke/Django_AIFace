@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+	这是一个测试{{Hello}}
+
+	<form action="{% url 'app:upload' %}" method="post" enctype="multipart/form-data" >
+		{% csrf_token %}	
+		<input type="text" name="name">
+		<input type="file" name="img">
+		<input type="submit" name="提交">
+		
+	</form>
+
+</body>
+</html>
